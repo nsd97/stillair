@@ -87,14 +87,6 @@ enum PreviewSupport {
         return monitor
     }
 
-    static var updateChecker: UpdateChecker {
-        let checker = UpdateChecker()
-        checker.hasChecked = true
-        checker.updateAvailable = false
-        checker.latestVersion = checker.currentVersion
-        return checker
-    }
-
     enum PreviewFrame {
         case popover
         case detail

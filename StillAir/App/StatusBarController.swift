@@ -15,14 +15,12 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     private let fanMonitor: FanMonitor
     private let thermalMonitor: ThermalPressureMonitor
     private let eventLog: ThrottleEventLog
-    private let updateChecker: UpdateChecker
 
     init(
         fanMonitor: FanMonitor,
         thermalMonitor: ThermalPressureMonitor,
         eventLog: ThrottleEventLog,
-        systemInfo: SystemInfo,
-        updateChecker: UpdateChecker
+        systemInfo: SystemInfo
     ) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusMenu = NSMenu()
@@ -30,7 +28,6 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         self.fanMonitor = fanMonitor
         self.thermalMonitor = thermalMonitor
         self.eventLog = eventLog
-        self.updateChecker = updateChecker
 
         super.init()
 
@@ -105,7 +102,6 @@ final class StatusBarController: NSObject, NSMenuDelegate {
             pressure: thermalMonitor.pressure,
             events: eventLog.menuEvents,
             settings: AppSettings.shared,
-            updateAvailable: updateChecker.updateAvailable,
             actions: .init(
                 target: self,
                 openSettings: #selector(openSettings(_:)),
@@ -136,7 +132,6 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         if settingsWindow == nil {
             let root = SettingsView(
                 settings: AppSettings.shared,
-                updateChecker: updateChecker,
                 fanMonitor: fanMonitor,
                 systemInfo: systemInfo
             )

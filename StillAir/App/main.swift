@@ -9,7 +9,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let memoryInfo = MemoryInfo()
     let batteryInfo = BatteryInfo()
     let cpuInfo = CpuInfo()
-    let updateChecker = UpdateChecker()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         fanMonitor.startMonitoring()
@@ -25,10 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             fanMonitor: fanMonitor,
             thermalMonitor: thermalMonitor,
             eventLog: thermalMonitor.eventLog,
-            systemInfo: systemInfo,
-            updateChecker: updateChecker
+            systemInfo: systemInfo
         )
-        updateChecker.startPeriodicChecks()
     }
 
     func applicationWillTerminate(_ notification: Notification) {

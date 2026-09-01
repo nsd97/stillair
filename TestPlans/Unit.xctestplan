@@ -11,7 +11,7 @@
   "defaultOptions" : {
     "targetForVariableExpansion" : {
       "containerPath" : "container:StillAir.xcodeproj",
-      "identifier" : "ChillMac",
+      "identifier" : "StillAir",
       "name" : "StillAir"
     }
   },

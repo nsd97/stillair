@@ -2,7 +2,6 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var settings: AppSettings
-    @ObservedObject var updateChecker: UpdateChecker
     @ObservedObject var fanMonitor: FanMonitor
     let systemInfo: SystemInfo
 
@@ -41,34 +40,6 @@ struct SettingsView: View {
                     }
                 }
 
-                Section("Updates") {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Current Version")
-                            Text("v\(updateChecker.currentVersion)")
-                                .foregroundStyle(.secondary)
-                                .font(DesignSystem.TypeScale.caption)
-                        }
-                        Spacer()
-                        Button("Check") { updateChecker.performCheck() }
-                            .disabled(updateChecker.isChecking)
-                    }
-                    if updateChecker.updateAvailable, let version = updateChecker.latestVersion {
-                        HStack {
-                            Text("v\(version) Available")
-                            Spacer()
-                            if let url = updateChecker.downloadURL ?? updateChecker.releaseURL {
-                                Button("Download") { NSWorkspace.shared.open(url) }
-                                    .buttonStyle(.borderedProminent)
-                                    .controlSize(.small)
-                            }
-                        }
-                    } else if updateChecker.hasChecked && !updateChecker.updateAvailable {
-                        Label("You're up to date", systemImage: "checkmark.circle.fill")
-                            .foregroundStyle(.green)
-                    }
-                }
-
                 Section("Diagnostics") {
                     Button("Export Diagnostics…") {
                         DiagnosticExporter.export(
@@ -91,7 +62,6 @@ struct SettingsView: View {
             .padding(.bottom, DesignSystem.Space.md)
         }
         .frame(minWidth: 360, idealWidth: 380, minHeight: 360)
-        .onAppear { updateChecker.performCheck() }
     }
 
     private var appearanceBinding: Binding<AppearanceMode> {
@@ -106,7 +76,6 @@ struct SettingsView: View {
 #Preview("Settings") {
     SettingsView(
         settings: AppSettings.shared,
-        updateChecker: PreviewSupport.updateChecker,
         fanMonitor: PreviewSupport.fanMonitor,
         systemInfo: PreviewSupport.systemInfo
     )

@@ -20,7 +20,6 @@ enum StillAirStatusMenuBuilder {
         pressure: ThermalPressure,
         events: [ThrottleEvent],
         settings: AppSettings,
-        updateAvailable: Bool,
         actions: Actions
     ) {
         menu.removeAllItems()
@@ -30,7 +29,7 @@ enum StillAirStatusMenuBuilder {
             appendDisabledCaption(menu: menu, title: "SMC Error")
             appendDisabledCaption(menu: menu, title: error)
             menu.addItem(.separator())
-            appendFooter(menu: menu, updateAvailable: updateAvailable, actions: actions)
+            appendFooter(menu: menu, actions: actions)
             return
         }
 
@@ -53,7 +52,7 @@ enum StillAirStatusMenuBuilder {
         }
 
         menu.addItem(.separator())
-        appendFooter(menu: menu, updateAvailable: updateAvailable, actions: actions)
+        appendFooter(menu: menu, actions: actions)
     }
 
     static func logLine(event: ThrottleEvent, useFahrenheit: Bool) -> String {
@@ -116,21 +115,16 @@ enum StillAirStatusMenuBuilder {
 
     private static func appendFooter(
         menu: NSMenu,
-        updateAvailable: Bool,
         actions: Actions
     ) {
-        let settingsTitle = updateAvailable ? "Settings… ●" : "Settings…"
         let settings = NSMenuItem(
-            title: settingsTitle,
+            title: "Settings…",
             action: actions.openSettings,
             keyEquivalent: ","
         )
         settings.target = actions.target
         settings.tag = ItemTag.settings.rawValue
         settings.isEnabled = true
-        if updateAvailable {
-            settings.attributedTitle = settingsAttributedTitle()
-        }
         menu.addItem(settings)
 
         menu.addItem(.separator())
@@ -144,22 +138,5 @@ enum StillAirStatusMenuBuilder {
         quit.tag = ItemTag.quit.rawValue
         quit.isEnabled = true
         menu.addItem(quit)
-    }
-
-    private static func settingsAttributedTitle() -> NSAttributedString {
-        let result = NSMutableAttributedString(
-            string: "Settings…",
-            attributes: [
-                .font: NSFont.menuFont(ofSize: 0),
-                .foregroundColor: NSColor.labelColor,
-            ]
-        )
-        result.append(NSAttributedString(string: "  "))
-        let dot = NSAttributedString(string: "●", attributes: [
-            .font: NSFont.menuFont(ofSize: 0),
-            .foregroundColor: NSColor.controlAccentColor,
-        ])
-        result.append(dot)
-        return result
     }
 }
