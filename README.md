@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/stillair-hero.svg" alt="StillAir — a motionless feather suspended in calm air beside a live thermal-pressure readout." width="860">
+  <img src="assets/stillair-hero-rank3.svg" alt="StillAir — a motionless feather suspended in calm air beside a live thermal-pressure readout." width="860">
 </p>
 
 # StillAir
