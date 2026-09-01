@@ -46,14 +46,14 @@ targets:
         BUNDLE_LOADER: "$(TEST_HOST)"
 
 schemes:
-  ChillMac:
+  StillAir:
     build:
       targets:
-        ChillMac: all
-        ChillMacTests: [test]
+        StillAir: all
+        StillAirTests: [test]
     test:
       targets:
-        - name: ChillMacTests
+        - name: StillAirTests
           parallelizable: true
       testPlans:
         - path: TestPlans/Unit.xctestplan
