@@ -96,22 +96,22 @@
     <g transform="translate(826 42)" filter="url(#d-shadow)">
       <rect width="330" height="236" rx="14" fill="url(#d-panel)" stroke="#99e4ff" stroke-opacity="0.22"/>
       <text x="22" y="34" font-size="10" font-weight="750" letter-spacing="2" fill="#7493a0">THERMAL PRESSURE</text>
-      <circle cx="302" cy="29" r="4.5" fill="#ff453a">
+      <circle cx="302" cy="29" r="4.5" fill="#ff9f0a">
         <animate attributeName="opacity" values="0.62;1;0.62" dur="2.2s" repeatCount="indefinite"/>
       </circle>
 
-      <text x="22" y="101" font-size="62" font-weight="720" letter-spacing="-2" fill="#f5f7fa">76°</text>
+      <text x="22" y="101" font-size="62" font-weight="720" letter-spacing="-2" fill="#f5f7fa">72°</text>
       <text x="147" y="98" font-size="13" font-weight="650" fill="#7f97a2">C</text>
-      <rect x="230" y="61" width="76" height="42" rx="10" fill="#ff453a"/>
-      <text x="268" y="87" text-anchor="middle" font-size="11" font-weight="800" letter-spacing="0.8" fill="#ffffff">RANK 4</text>
+      <rect x="230" y="61" width="76" height="42" rx="10" fill="#ff9f0a"/>
+      <text x="268" y="87" text-anchor="middle" font-size="11" font-weight="800" letter-spacing="0.8" fill="#ffffff">RANK 3</text>
 
       <line x1="22" y1="123" x2="308" y2="123" stroke="#ffffff" stroke-opacity="0.11"/>
       <text x="22" y="149" font-size="9" font-weight="700" letter-spacing="1.7" fill="#667f8a">RANK SCALE</text>
       <g transform="translate(22 163)" font-size="10" font-weight="800" text-anchor="middle">
         <g transform="translate(14 14)"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#122933"/><text y="4" fill="#77d8ff">1</text></g>
         <g transform="translate(58 14)"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#172b32"/><text y="4" fill="#9cdce9">2</text></g>
-        <g transform="translate(102 14)"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#302b20"/><text y="4" fill="#ffe169">3</text></g>
-        <g transform="translate(146 14)"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#ff453a"/><text y="4" fill="#ffffff">4</text></g>
+        <g transform="translate(102 14)"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#ff9f0a"/><text y="4" fill="#ffffff">3</text></g>
+        <g transform="translate(146 14)"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#2f1d1b"/><text y="4" fill="#a7605c">4</text></g>
         <g transform="translate(190 14)"><rect x="-14" y="-14" width="28" height="28" rx="6" fill="#2b1717"/><text y="4" fill="#a95b57">5</text></g>
       </g>
       <text x="22" y="222" font-size="10" font-weight="650" letter-spacing="1.1" fill="#536d78">TEMPERATURE  ·  PRESSURE  ·  HISTORY</text>
