@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:StillAir.xcodeproj",
+      "identifier" : "ChillMac",
+      "name" : "StillAir"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:StillAir.xcodeproj",
+        "identifier" : "StillAirTests",
+        "name" : "StillAirTests"
+      }
+    }
+  ],
+  "version" : 1
+}

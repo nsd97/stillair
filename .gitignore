@@ -1,0 +1,26 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# XcodeGen (entire xcodeproj is regenerated from project.yml)
+*.xcodeproj/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# Archives
+*.xcarchive
+
+# Env
+.env
+
+# Claude Code (personal/local overrides)
+CLAUDE.local.md
+.claude/settings.local.json

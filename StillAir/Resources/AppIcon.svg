@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a3a4a"/>
+      <stop offset="50%" stop-color="#0f2b3c"/>
+      <stop offset="100%" stop-color="#0a1e2e"/>
+    </linearGradient>
+    <linearGradient id="ice" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="heat" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#facc15"/>
+      <stop offset="55%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect x="40" y="40" width="944" height="944" rx="220" ry="220" fill="url(#bg)"/>
+  <rect x="40" y="40" width="944" height="944" rx="220" ry="220" fill="none" stroke="#2a5a6a" stroke-width="2" opacity="0.5"/>
+  <circle cx="512" cy="512" r="320" fill="url(#glow)"/>
+
+  <g transform="translate(512, 490)" filter="url(#shadow)">
+    <rect x="-40" y="-310" width="80" height="390" rx="40" fill="none" stroke="url(#ice)" stroke-width="28"/>
+    <rect x="-18" y="-250" width="36" height="320" rx="18" fill="url(#heat)"/>
+    <circle cx="0" cy="170" r="118" fill="url(#ice)"/>
+    <circle cx="0" cy="170" r="78" fill="url(#heat)"/>
+    <circle cx="0" cy="170" r="28" fill="#fecaca"/>
+  </g>
+</svg>

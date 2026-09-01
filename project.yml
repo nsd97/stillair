@@ -1,0 +1,60 @@
+name: StillAir
+options:
+  bundleIdPrefix: com.nsd97
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+
+targets:
+  StillAir:
+    type: application
+    platform: macOS
+    sources:
+      - path: StillAir
+    settings:
+      base:
+        PRODUCT_NAME: StillAir
+        PRODUCT_MODULE_NAME: StillAir
+        PRODUCT_BUNDLE_IDENTIFIER: com.nsd97.StillAir
+        INFOPLIST_FILE: StillAir/Info.plist
+        CODE_SIGN_ENTITLEMENTS: StillAir/StillAir.entitlements
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Automatic
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+        ENABLE_HARDENED_RUNTIME: YES
+
+  StillAirTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: StillAirTests
+    dependencies:
+      - target: StillAir
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nsd97.StillAirTests
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Automatic
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/StillAir.app/Contents/MacOS/StillAir"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+
+schemes:
+  ChillMac:
+    build:
+      targets:
+        ChillMac: all
+        ChillMacTests: [test]
+    test:
+      targets:
+        - name: ChillMacTests
+          parallelizable: true
+      testPlans:
+        - path: TestPlans/Unit.xctestplan
+          defaultPlan: true
